@@ -11,3 +11,9 @@ export const NoteSchema = new Schema(
     toJSON: { virtuals: true }
   }
 )
+NoteSchema.virtual('creator', {
+  ref: 'Account',
+  localField: 'creatorId',
+  foreignField: '_id',
+  justOne: true
+})
